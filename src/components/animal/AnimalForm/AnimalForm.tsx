@@ -31,8 +31,7 @@ const AnimalForm = ({
   };
 
   return (
-    <div>
-      <h2>Crea un nuevo Animal</h2>
+    <div className={s.container}>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -40,6 +39,7 @@ const AnimalForm = ({
       >
         {({ isSubmitting }) => (
           <Form className={s.animalForm}>
+            <h2>Crea un nuevo Animal</h2>
             <div className={s.formGroup}>
               <label htmlFor="name">Nombre:</label>
               <Field

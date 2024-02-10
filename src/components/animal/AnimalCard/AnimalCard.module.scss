@@ -1,17 +1,23 @@
-.animalCard {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  border: 1px solid rgb(20, 14, 94);
-
+.containner {
+  box-shadow: 4px 0px 36px rgba(0, 0, 0, 0.25);
+  .animalCard {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
   .info {
     padding: 0.75rem;
     padding-top: 0;
     border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #e9e7e3;
   }
-}
-.link {
-  text-decoration: none;
-  color: gray;
-  cursor: pointer;
+  .link,
+  .deleteButton {
+    text-decoration: none;
+    color: gray;
+    cursor: pointer;
+  }
 }

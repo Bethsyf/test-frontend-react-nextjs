@@ -21,15 +21,15 @@ const AnimalDetail = ({ animal }: ListAnimalProps) => {
         <h1 className={s.title}>{animal?.name}</h1>
         <div className={s.containerInto}>
           <p className={s.props}>Origen: </p>
-          <p className={''}>{animal.origin}</p>
+          <p className={''}>{animal?.origin}</p>
         </div>
         <div className={s.containerInto}>
           <p className={s.props}>Dieta:</p>
-          <p className={''}>{animal.diet}</p>
+          <p className={''}>{animal?.diet}</p>
         </div>
         <p className={s.props}>Hábilidades:</p>
         <ul>
-          {animal.skills.map((skill: string, index: number) => (
+          {animal?.skills.map((skill: string, index: number) => (
             <li key={index}>{skill}</li>
           ))}
         </ul>

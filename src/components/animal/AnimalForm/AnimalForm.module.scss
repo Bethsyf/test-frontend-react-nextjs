@@ -1,0 +1,43 @@
+.animalForm {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 4rem;
+  border-radius: 20px;
+  box-shadow: 4px 0px 36px rgba(0, 0, 0, 0.25);
+}
+
+.formGroup {
+  margin-bottom: 1rem;
+}
+
+.formInput {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.checkboxGroup {
+  display: flex;
+  gap: 3rem;
+}
+
+.submitButton {
+  background-color: rgb(197, 70, 20);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  margin-top: 3rem;
+  width: 150px;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  margin-left: auto;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}

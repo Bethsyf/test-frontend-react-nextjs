@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-
-
 export const getAnimals = async (id?: string) => {
   try {
     const apiUrl = id ? `${process.env.NEXT_PUBLIC_API_BASE_URL}?ids=${id}` : process.env.NEXT_PUBLIC_API_BASE_URL
@@ -24,6 +22,6 @@ export const getAnimals = async (id?: string) => {
     } else {
       console.error('Error inesperado al obtener animales:', error.message);
     }
-    throw error; // Re-lanza el error para que el llamador pueda manejarlo
+    throw error; 
   }
 };

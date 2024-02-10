@@ -1,20 +1,20 @@
 import Link from 'next/link';
-import styles from './Header.module.scss';
+import s from './Header.module.scss';
 
 export const Header = async () => {
   return (
-    <header className={styles.Header}>
+    <header className={s.header}>
       <nav>
-        <ul className={styles.list}>
+        <ul className={s.list}>
           <li>
             <Link href="/">Inicio</Link>
           </li>
           <li>
-            <Link href="/store">Animales</Link>
+            <Link href="/animals">Animales</Link>
           </li>
         </ul>
       </nav>
-      <div>
+      <div className={s.user}>
         <Link href="/login">Login</Link>
       </div>
     </header>

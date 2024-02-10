@@ -1,5 +1,5 @@
-import Image from 'next/image';
+import { MainAnimals } from 'app/components/home/MainAnimals/MainAnimals';
 
 export default function Home() {
-  return <main>este es el Home</main>;
+  return <MainAnimals />;
 }

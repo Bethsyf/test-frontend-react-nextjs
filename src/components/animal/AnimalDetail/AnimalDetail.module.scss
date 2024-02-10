@@ -1,0 +1,40 @@
+.animalDetails {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 450px;
+  grid-gap: 5rem;
+  margin-top: 5rem;
+  .images {
+    img {
+      border-radius: 0.5rem;
+    }
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    .containerInto {
+      display: flex;
+      align-items: center;
+      .props {
+        width: fit-content;
+        font-size: 1.125rem;
+        line-height: 1.5;
+        letter-spacing: 0.5px;
+        text-shadow: 0px 0px 5px rgb(26, 21, 95);
+        padding-right: 0.5rem;
+        border-radius: 1rem;
+      }
+    }
+    .title {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    .description {
+      font-size: 1.125rem;
+      line-height: 1.5;
+      letter-spacing: 0.5px;
+      margin: 1rem 0px;
+    }
+  }
+}

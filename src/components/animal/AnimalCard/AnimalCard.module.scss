@@ -1,0 +1,15 @@
+.animalCard {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  .info {
+    padding: 0.75rem;
+    padding-top: 0;
+    border-radius: 5px;
+  }
+}
+.link {
+  text-decoration: none;
+  color: gray;
+  cursor: pointer;
+}

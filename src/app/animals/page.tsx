@@ -1,5 +1,7 @@
-import AnimalList from 'app/components/animal/AnimalList/AnimalList';
+import { AnimalsWrapper } from 'app/components/animal/AnimalsWrapper/AnimalsWrapper';
+import { getAnimals } from 'app/services/mongodb/animals';
 
-export default function AnimalsPage() {
-  return <AnimalList />;
+export default async function AnimalsPage() {
+  const animals = await getAnimals();
+  return <AnimalsWrapper animals={animals} />;
 }

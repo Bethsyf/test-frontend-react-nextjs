@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
-export const getAnimals = async () => {
+
+export const getAnimals = async (id?: string) => {
   try {
+    const apiUrl = id ? `${process.env.NEXT_PUBLIC_API_BASE_URL}?ids=${id}` : process.env.NEXT_PUBLIC_API_BASE_URL
     const response = await axios.get(`${apiUrl}/animals`, {
       headers: {
         'Content-Type': 'application/json',

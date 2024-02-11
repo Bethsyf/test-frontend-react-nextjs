@@ -5,7 +5,6 @@ export const getAnimalById = async (id:string) => {
 
   try {
     const response = await axios.get(`${apiUrl}/animal?id=${id}`);
-    console.log(response)
 
     if (response.status === 200) {
       return { success: true, data: response.data };

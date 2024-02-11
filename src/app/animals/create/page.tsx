@@ -1,6 +1,7 @@
 'use client';
 import AnimalForm from 'app/components/animal/AnimalForm/AnimalForm';
 import { createAnimal } from 'app/services/mongodb/animal/post';
+import { redirect } from 'next/navigation';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

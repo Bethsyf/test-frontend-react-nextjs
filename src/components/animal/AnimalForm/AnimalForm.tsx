@@ -6,17 +6,13 @@ import s from './AnimalForm.module.scss';
 
 const AnimalForm = ({
   handleSubmit,
+  initialValues, // Nuevamente prop para los valores iniciales
+  isUpdating = false, // Nuevo prop para indicar si se está actualizando
 }: {
   handleSubmit: (data: any) => void;
+  initialValues: any;
+  isUpdating?: boolean; // Por defecto, asumimos que no se está actualizando
 }) => {
-  const initialValues = {
-    name: '',
-    origin: '',
-    image: '',
-    diet: '',
-    skills: '',
-  };
-
   const validationSchema = Yup.object().shape({
     name: Yup.string().required('El nombre es obligatorio'),
     origin: Yup.string().required('El origen es obligatorio'),
@@ -39,7 +35,8 @@ const AnimalForm = ({
       >
         {({ isSubmitting }) => (
           <Form className={s.animalForm}>
-            <h2>Crea un nuevo Animal</h2>
+            <h2>{isUpdating ? 'Modificar' : 'Crear'} Animal</h2>{' '}
+            {/* Cambio en el título */}
             <div className={s.formGroup}>
               <label htmlFor="name">Nombre:</label>
               <Field
@@ -95,7 +92,8 @@ const AnimalForm = ({
               className={s.submitButton}
               disabled={isSubmitting}
             >
-              Crear
+              {isUpdating ? 'Actualizar' : 'Crear'}{' '}
+              {/* Cambio en el texto del botón */}
             </button>
           </Form>
         )}

@@ -1,9 +1,13 @@
 'use client';
+'use client';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import s from './AnimalCard.module.scss';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
-import { deleteAnimal } from 'app/services/mongodb/animals'; // Importa la función para eliminar el animal
+import { deleteAnimal } from 'app/services/mongodb/animal/delete';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface AnimalCardProps {
   animal: any;
@@ -12,16 +16,25 @@ interface AnimalCardProps {
 export const AnimalCard = ({ animal }: AnimalCardProps) => {
   const handleDelete = async () => {
     try {
-      // Llama a la función deleteAnimal para eliminar el animal
       await deleteAnimal(animal._id);
-      // Realiza alguna acción después de eliminar el animal, como actualizar la lista de animales
+      toast.success('¡El animal ha sido eliminado exitosamente!');
+      window.location.reload();
     } catch (error) {
       console.error('Error al eliminar el animal:', error);
+      toast.error(
+        'Hubo un error al eliminar el animal. Por favor, inténtalo de nuevo.'
+      );
+    }
+  };
+
+  const confirmDelete = () => {
+    if (window.confirm('¿Estás seguro de que quieres eliminar este animal?')) {
+      handleDelete();
     }
   };
 
   return (
-    <div className={s.containner}>
+    <div className={s.container}>
       <Link href={`/animals/${animal._id}`} className={s.link}>
         <article className={s.animalCard}>
           <Image
@@ -38,13 +51,14 @@ export const AnimalCard = ({ animal }: AnimalCardProps) => {
         <Link href={`/animals/${animal._id}`} className={s.link}>
           <h3>{animal.name}</h3>
         </Link>
-        <Link href={'/animals/edit'} className={s.link}>
+        <Link href={`/animals/edit/${animal._id}`} className={s.link}>
           <FaEdit />
         </Link>
-        <div onClick={handleDelete} className={s.deleteButton}>
+        <div onClick={confirmDelete} className={s.deleteButton}>
           <FaTrashAlt />
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

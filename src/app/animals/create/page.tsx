@@ -1,7 +1,7 @@
 'use client';
 
 import AnimalForm from 'app/components/animal/AnimalForm/AnimalForm';
-import { createAnimal } from 'app/services/mongodb/animal';
+import { createAnimal } from 'app/services/mongodb/animal/post';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -27,8 +27,7 @@ export default function CreateAnimalPage() {
 
   return (
     <>
-      <AnimalForm handleSubmit={handleSubmit} />{' '}
-      {/* Pasar formData como una prop al formulario */}
+      return <AnimalForm handleSubmit={handleSubmit} initialValues={{}} />;
       <ToastContainer />
     </>
   );

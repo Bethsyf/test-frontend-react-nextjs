@@ -1,4 +1,4 @@
-import { getAnimals } from 'app/services/mongodb/animals';
+import { getAnimals } from 'app/services/mongodb/animals/get';
 import s from './MainAnimals.module.scss';
 import Image from 'next/image';
 

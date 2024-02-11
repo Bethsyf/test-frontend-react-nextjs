@@ -1,13 +1,14 @@
 import axios from 'axios';
 
-export const deleteAnimal = async (id:string) => {
+export const getAnimalById = async (id:string) => {
   const apiUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}`;
 
   try {
-    const response = await axios.delete(`${apiUrl}/animals/${id}`);
+    const response = await axios.get(`${apiUrl}/animal?id=${id}`);
+    console.log(response)
 
-    if (response.status === 200 || response.status === 204) {
-      return { success: true };
+    if (response.status === 200) {
+      return { success: true, data: response.data };
     } else {
       return { success: false, error: response.statusText };
     }

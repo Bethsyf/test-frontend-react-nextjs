@@ -34,7 +34,7 @@ export const AnimalCard = ({ animal }: AnimalCardProps) => {
   };
 
   return (
-    <div className={s.container}>
+    <div className={s.containner}>
       <Link href={`/animals/${animal._id}`} className={s.link}>
         <article className={s.animalCard}>
           <Image

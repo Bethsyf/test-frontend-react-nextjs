@@ -29,7 +29,7 @@ const AnimalDetail = ({ animal }: ListAnimalProps) => {
         </div>
         <p className={s.props}>Hábilidades:</p>
         <ul>
-          {animal?.skills.map((skill: string, index: number) => (
+          {animal?.skills?.map((skill: string, index: number) => (
             <li key={index}>{skill}</li>
           ))}
         </ul>

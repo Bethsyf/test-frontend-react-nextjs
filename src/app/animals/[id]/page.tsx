@@ -5,7 +5,7 @@ import { redirect, useParams } from 'next/navigation';
 import { getAnimalById } from 'app/services/mongodb/animal/get';
 
 export default function AnimalPage() {
-  const { id } = useParams();
+  const { id }: { id: string } = useParams();
   const [animal, setAnimal] = useState(null);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export default function AnimalPage() {
     fetchData();
   }, [id]);
 
-  if (!animal) {
+  if (!id) {
     redirect('/');
   }
 

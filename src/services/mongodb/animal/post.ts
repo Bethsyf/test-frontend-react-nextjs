@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-export const createAnimal = async (userData: any) => {
+export const createAnimal = async (animalData: AnimalsType) => {
   const apiUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}`;
 
   try {
-    const response = await axios.post(`${apiUrl}/animals`, userData);
+    const response = await axios.post(`${apiUrl}/animals`, animalData);
 
     if (response.status === 200 || response.status === 201) {
       const responseData = response.data;

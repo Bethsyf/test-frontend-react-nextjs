@@ -3,7 +3,7 @@ import { AnimalCard } from '../AnimalCard/AnimalCard';
 import s from './AnimalsWrapper.module.scss';
 
 interface AnimalsWrapperProps {
-  animals: any;
+  animals: [];
 }
 
 export const AnimalsWrapper = ({ animals }: AnimalsWrapperProps) => {
@@ -13,8 +13,8 @@ export const AnimalsWrapper = ({ animals }: AnimalsWrapperProps) => {
         <Link href="/animals/create">Crear Animal</Link>
       </div>
       <div className={s.animalsWrapper}>
-        {animals.map((animal: any) => (
-          <AnimalCard key={animal.id} animal={animal} />
+        {animals.map((animal: AnimalsType) => (
+          <AnimalCard key={animal._id} animal={animal} />
         ))}
       </div>
     </div>

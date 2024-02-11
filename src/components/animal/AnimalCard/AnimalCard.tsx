@@ -1,5 +1,4 @@
 'use client';
-'use client';
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -10,7 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 interface AnimalCardProps {
-  animal: any;
+  animal: AnimalsType;
 }
 
 export const AnimalCard = ({ animal }: AnimalCardProps) => {

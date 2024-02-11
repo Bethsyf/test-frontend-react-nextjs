@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import s from './AnimalDetail.module.scss';
 interface ListAnimalProps {
-  animal: any;
+  animal: AnimalsType;
 }
 
 const AnimalDetail = ({ animal }: ListAnimalProps) => {
@@ -27,12 +27,9 @@ const AnimalDetail = ({ animal }: ListAnimalProps) => {
           <p className={s.props}>Dieta:</p>
           <p className={''}>{animal?.diet}</p>
         </div>
-        <p className={s.props}>Hábilidades:</p>
-        <ul>
-          {animal?.skills?.map((skill: string, index: number) => (
-            <li key={index}>{skill}</li>
-          ))}
-        </ul>
+
+        <p className={s.subtitle}>Hábilidades y/o descripción:</p>
+        <p className={''}>{animal?.skills}</p>
       </section>
     </main>
   );

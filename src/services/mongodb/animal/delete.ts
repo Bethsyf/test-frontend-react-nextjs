@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const deleteAnimal = async (id:string) => {
+export const deleteAnimal = async (id?:string ) => {
   const apiUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}`;
 
   try {

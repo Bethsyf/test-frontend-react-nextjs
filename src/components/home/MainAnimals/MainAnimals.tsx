@@ -8,7 +8,7 @@ export const MainAnimals = async () => {
     <section className={s.mainAnimals}>
       <h3>✨ ¡Nuestros Animales!</h3>
       <div className={s.grid}>
-        {animals?.map((animal: any) => {
+        {animals?.map((animal: AnimalsType) => {
           return (
             <article key={animal._id}>
               <p>{animal.name}</p>

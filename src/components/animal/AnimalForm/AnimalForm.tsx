@@ -6,12 +6,12 @@ import s from './AnimalForm.module.scss';
 
 const AnimalForm = ({
   handleSubmit,
-  initialValues, // Nuevamente prop para los valores iniciales
-  isUpdating = false, // Nuevo prop para indicar si se está actualizando
+  initialValues,
+  isUpdating = false,
 }: {
-  handleSubmit: (data: any) => void;
-  initialValues: any;
-  isUpdating?: boolean; // Por defecto, asumimos que no se está actualizando
+  handleSubmit: (data: AnimalsType) => void;
+  initialValues: AnimalsType;
+  isUpdating?: boolean;
 }) => {
   const validationSchema = Yup.object().shape({
     name: Yup.string().required('El nombre es obligatorio'),
@@ -21,7 +21,10 @@ const AnimalForm = ({
     skills: Yup.string().required('Las habilidades son obligatorias'),
   });
 
-  const onSubmit = (values: any, { setSubmitting }: any) => {
+  const onSubmit = (
+    values: AnimalsType,
+    { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
+  ) => {
     handleSubmit(values);
     setSubmitting(false);
   };
@@ -36,7 +39,6 @@ const AnimalForm = ({
         {({ isSubmitting }) => (
           <Form className={s.animalForm}>
             <h2>{isUpdating ? 'Modificar' : 'Crear'} Animal</h2>{' '}
-            {/* Cambio en el título */}
             <div className={s.formGroup}>
               <label htmlFor="name">Nombre:</label>
               <Field
@@ -78,7 +80,7 @@ const AnimalForm = ({
               <ErrorMessage name="diet" component="div" className={s.error} />
             </div>
             <div className={s.formGroup}>
-              <label htmlFor="skills">Habilidades:</label>
+              <label htmlFor="skills">Habilidades y/o descripción:</label>
               <Field
                 as="textarea"
                 id="skills"
@@ -93,7 +95,6 @@ const AnimalForm = ({
               disabled={isSubmitting}
             >
               {isUpdating ? 'Actualizar' : 'Crear'}{' '}
-              {/* Cambio en el texto del botón */}
             </button>
           </Form>
         )}

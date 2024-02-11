@@ -1,12 +1,11 @@
 'use client';
-
 import AnimalForm from 'app/components/animal/AnimalForm/AnimalForm';
 import { createAnimal } from 'app/services/mongodb/animal/post';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function CreateAnimalPage() {
-  const handleSubmit = async (data: any) => {
+  const handleSubmit = async (data: AnimalsType) => {
     try {
       await createAnimal(data);
       toast.success('¡El animal ha sido creado exitosamente!', {
@@ -27,7 +26,16 @@ export default function CreateAnimalPage() {
 
   return (
     <>
-      return <AnimalForm handleSubmit={handleSubmit} initialValues={{}} />;
+      <AnimalForm
+        handleSubmit={handleSubmit}
+        initialValues={{
+          name: '',
+          origin: '',
+          image: '',
+          diet: '',
+          skills: '',
+        }}
+      />
       <ToastContainer />
     </>
   );

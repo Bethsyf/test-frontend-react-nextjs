@@ -1,9 +1,10 @@
+'use client';
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import s from './LoginForm.module.scss';
-import { redirect } from 'next/navigation';
-import { signInWithEmailAndPassword } from 'services/firebase/methods';
+
+import { signInWithEmailAndPassword } from 'app/services/firebase/methods';
 
 const LoginForm = () => {
   const validationSchema = Yup.object().shape({
@@ -16,9 +17,9 @@ const LoginForm = () => {
   const handleSubmit = async (values: { email: string; password: string }) => {
     try {
       await signInWithEmailAndPassword(values.email, values.password);
-      redirect('/');
+      window.location.href = '/animals';
     } catch (error) {
-      console.error('Error durante el inicio de sesión:', error);
+      console.error('Error al crear la cuenta:', error);
     }
   };
 

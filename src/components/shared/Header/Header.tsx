@@ -1,7 +1,17 @@
+'use client';
 import Link from 'next/link';
 import s from './Header.module.scss';
+import { logout } from 'app/services/firebase/methods';
 
 export const Header = async () => {
+  const handleLogout = async () => {
+    try {
+      await logout();
+      console.log('sesion cerrada');
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <header className={s.header}>
       <nav>
@@ -18,7 +28,7 @@ export const Header = async () => {
         <Link className={s.login} href="/login">
           Iniciar Sesión
         </Link>
-        <button>Cerrar Sesión</button>
+        <button onClick={handleLogout}>Cerrar Sesión</button>
         <Link className={s.signup} href="/signup">
           Registrarse
         </Link>

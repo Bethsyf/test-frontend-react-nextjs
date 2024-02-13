@@ -1,19 +1,18 @@
 .container {
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: 0rem;
 }
 
 .animalForm {
-  max-width: 5500px;
+  max-width: 500px;
   margin: 0 auto;
   padding: 3rem 2rem;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   background: #ffffff;
-
   h2 {
-    margin: 0rem auto 2rem auto;
+    margin: 0.5rem auto 3rem auto;
   }
 }
 
@@ -22,8 +21,7 @@
 }
 
 .formInput {
-  width: 90%;
-  margin: auto;
+  width: 100%;
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -35,18 +33,18 @@
 }
 
 .submitButton {
-  background-color: rgb(0, 86, 179);
+  background-color: rgb(197, 70, 20);
   color: #fff;
   border: none;
   border-radius: 10px;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  width: 75%;
+  width: 100%;
   font-size: 1rem;
   transition: background-color 0.3s ease;
-  margin: 1rem 2rem;
+  margin-top: 2rem;
 }
 
 .submitButton:hover {
-  background-color: #004a99;
+  background-color: #0056b3;
 }

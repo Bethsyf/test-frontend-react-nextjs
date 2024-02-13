@@ -12,3 +12,7 @@ type AnimalsType = {
   skills: string;
 };
 
+interface AnimalsProps {
+  animals: [];
+}
+

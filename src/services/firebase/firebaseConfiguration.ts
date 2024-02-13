@@ -1,6 +1,5 @@
-import { initializeApp } from 'firebase/app';
+import firebase from "firebase/app";
 import 'firebase/auth';
-import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_API_KEY,
@@ -12,9 +11,7 @@ const firebaseConfig = {
     measurementId: process.env.NEXT_PUBLIC_MEASUREMENT_ID,
   }
 
-  const firebaseApp = initializeApp(firebaseConfig);
-
-  // Access services using firebaseApp
-  const auth = getAuth(firebaseApp);
-  
-  export default firebaseApp;
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
+  export { firebase };

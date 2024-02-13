@@ -18,6 +18,7 @@ export const Header = async () => {
         <Link className={s.login} href="/login">
           Iniciar Sesión
         </Link>
+        <button>Cerrar Sesión</button>
         <Link className={s.signup} href="/signup">
           Registrarse
         </Link>

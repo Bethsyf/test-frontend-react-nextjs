@@ -15,7 +15,12 @@ export const Header = async () => {
         </ul>
       </nav>
       <div className={s.user}>
-        <Link href="/login">Login</Link>
+        <Link className={s.login} href="/login">
+          Iniciar Sesión
+        </Link>
+        <Link className={s.signup} href="/signup">
+          Registrarse
+        </Link>
       </div>
     </header>
   );

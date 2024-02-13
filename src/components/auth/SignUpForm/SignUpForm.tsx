@@ -4,7 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import s from './SignUpForm.module.scss';
 
-const SignUp = () => {
+const SignUpForm = () => {
   const validationSchema = Yup.object().shape({
     name: Yup.string().required('El nombre es obligatorio'),
     email: Yup.string()
@@ -82,4 +82,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignUpForm;

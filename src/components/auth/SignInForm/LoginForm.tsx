@@ -1,8 +1,9 @@
-'use client';
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import s from './LoginForm.module.scss';
+import { redirect } from 'next/navigation';
+import { signInWithEmailAndPassword } from 'services/firebase/methods';
 
 const LoginForm = () => {
   const validationSchema = Yup.object().shape({
@@ -12,8 +13,13 @@ const LoginForm = () => {
     password: Yup.string().required('La contraseña es obligatoria'),
   });
 
-  const handleSubmit = (values: any) => {
-    console.log(values);
+  const handleSubmit = async (values: { email: string; password: string }) => {
+    try {
+      await signInWithEmailAndPassword(values.email, values.password);
+      redirect('/');
+    } catch (error) {
+      console.error('Error durante el inicio de sesión:', error);
+    }
   };
 
   return (

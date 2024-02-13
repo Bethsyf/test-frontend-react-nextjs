@@ -3,6 +3,7 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import s from './SignUpForm.module.scss';
+import { createUserWithEmailAndPassword } from 'app/services/firebase/methods';
 
 const SignUpForm = () => {
   const validationSchema = Yup.object().shape({
@@ -16,10 +17,22 @@ const SignUpForm = () => {
       .required('Debes confirmar tu contraseña'),
   });
 
-  const handleSubmit = (values: any) => {
-    console.log(values);
+  const handleSubmit = async (values: {
+    name: string;
+    email: string;
+    password: string;
+  }) => {
+    try {
+      await createUserWithEmailAndPassword(
+        values.email,
+        values.password,
+        values.name
+      );
+      window.location.href = '/animals';
+    } catch (error) {
+      console.error('Error al crear la cuenta:', error);
+    }
   };
-
   return (
     <div className={s.container}>
       <Formik

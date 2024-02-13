@@ -15,4 +15,3 @@ type AnimalsType = {
 interface AnimalsProps {
   animals: [];
 }
-
